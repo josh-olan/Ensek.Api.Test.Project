@@ -24,8 +24,8 @@ namespace Ensek.Api.Test.Project.Services
             var (content, statusCode) = Client.PutRequest<BaseResponse>(Endpoints.PurchaseEnergyUnits, 
                 new Dictionary<string, string>() 
             {
-                { "id", id.ToString() },
-                { "quantity", quantity.ToString() }
+                { nameof(id), id.ToString() },
+                { nameof(quantity), quantity.ToString() }
             });
             VerifyStatusCode(statusCode, 200);
 
@@ -40,17 +40,15 @@ namespace Ensek.Api.Test.Project.Services
             }
 
             // return created order
-            var createdOrder = new OrderCreatedResponse
+            return new OrderCreatedResponse
             {
                 Fuel = fuel,
                 Id = orderId!,
                 Quantity = quantity
             };
-
-            return createdOrder;
         }
 
-        public string? GetMatch(string pattern, string sentence)
+        public static string? GetMatch(string pattern, string sentence)
         {
             var reg = new Regex(pattern);
 
