@@ -32,10 +32,10 @@ namespace Ensek.Api.Test.Project.Extensions
         }
 
         public static (T content, int statusCode) PutRequest<T>(this ApiHelper helper, string resource, 
-            Dictionary<string, string> queryParams)
+            Dictionary<string, string> args)
         {
             var request = new RestRequest(resource, Method.Put);
-            queryParams.ToList().ForEach(param => request.AddUrlSegment(param.Key, param.Value));
+            args.ToList().ForEach(param => request.AddUrlSegment(param.Key, param.Value));
             return ExecuteAndParseResponse<T>(helper, request);
         }
 
