@@ -7,3 +7,5 @@
 	- Configure Run Settings
 	- Select Solution Wide Runsettings File
 	- In file explorer, select config.runsettings
+
+UI scenarios and bug details are in Manual > Ensek.xlsx
